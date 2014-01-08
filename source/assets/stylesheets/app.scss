@@ -1,0 +1,137 @@
+//= require normalize-css/normalize
+
+@import 'bourbon';
+@import 'neat';
+@import 'bitters';
+
+// colors
+$white: #FCFDFF;
+$transparent-white: rgba(252, 253, 255, 0.3);
+$blue: #383D74;
+$pink: #F1B0C4;
+$magenta: #EDC1A8;
+
+// mixins
+@mixin my-width {
+  @include outer-container;
+  max-width: 900px;
+}
+
+@mixin gloriola {
+  font-family: "GloriolaLight";
+}
+
+body {
+  @include linear-gradient(-252deg, $magenta 0%, $pink 100%);
+  @include gloriola;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @include gloriola;
+  font-weight: normal;
+}
+
+#menu {
+  @include my-width;
+  @include pad(1em 0 0.5em 0);
+  color: $white;
+
+  ul {
+    @include span-columns(6);
+    @include shift(6);
+
+    li {
+      @include span-columns(2 of 6);
+      text-align: center;
+    }
+  }
+}
+
+#header-row {
+  background: $white;
+
+  header {
+    @include my-width;
+
+    h1 {
+      @include span-columns(5);
+      @include pad(0.2em 0 0 0);
+      font-family: "BC Kakao Test B";
+      font-weight: bold;
+      font-size: 6em;
+      color: $blue;
+    }
+
+    #motto {
+      @include span-columns(7);
+      @include pad(2em 0);
+    }
+  }
+}
+
+#hero {
+  @include pad(2em 0 2em 0);
+  border-bottom: thin solid $white;
+
+  .item {
+    @include my-width;
+    color: $white;
+
+    h2 {
+      font-size: 4em;
+    }
+
+    div, p {
+      font-size: 2em;
+    }
+
+    div.date {
+      @include span-columns(3);
+    }
+
+    div.place {
+      @include span-columns(4);
+    }
+
+    p {
+      @include span-columns(12);
+      @include pad(0.33em 0 0 0);
+      margin: 0;
+    }
+
+  }
+}
+
+#items-list {
+  @include my-width;
+  @include pad(4em 0 4em 0);
+
+  .column {
+    @include span-columns(4);
+
+    &.last {
+      @include omega;
+    }
+
+    .item {
+      @include pad(1em 0 0 0);
+
+      .header {
+        @include pad(1em);
+        background: $transparent-white;
+
+        h5 {
+          font-weight: bold;
+          font-size: 1em;
+          color: $blue;
+        }
+
+      }
+
+      .body {
+        @include pad(1em);
+        background: $white;
+      }
+    }
+  }
+}
