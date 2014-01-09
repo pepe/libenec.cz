@@ -44,33 +44,21 @@ a {
 
 // specific rules
 #menu {
-  @include linear-gradient(-252deg, $magenta 0%, $pink 120%);
   position: fixed;
   top: 0;
-  z-index: 20;
   width: 100%;
-  height: 3em;
 
   ul {
     @include my-width;
     @include pad(0.5em 0 0.5em 0);
 
     li {
+      &:first-child {
+        @include shift(6);
+      }
+
       @include span-columns(2);
       text-align: center;
-
-      &.small-header {
-        @include span-columns(6);
-        text-align: left;
-
-        h1 {
-          margin: 0;
-          font-family: "BC Kakao Test B";
-          font-weight: bold;
-          font-size: 1.75em;
-          display: none;
-        }
-      }
 
       a {
         color: $white;
