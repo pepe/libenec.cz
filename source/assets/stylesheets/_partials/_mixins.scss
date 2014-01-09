@@ -1,0 +1,15 @@
+// mixins
+@mixin my-width {
+  @include outer-container;
+}
+
+@mixin half-width {
+  @include outer-container;
+  max-width: 28em;
+}
+
+@mixin gloriola {
+  font-family: "GloriolaLight";
+}
+
+

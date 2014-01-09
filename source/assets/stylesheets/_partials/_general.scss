@@ -1,0 +1,200 @@
+// colors
+$white: rgb(252, 253, 255);
+$black: rgb(3, 2, 0);
+$transparent-white: rgba(252, 253, 255, 0.3);
+$blue: rgb(62, 73, 105);
+$pink: rgb(241, 176, 196);
+$orange: rgb(237, 193, 168);
+$max-width: 56em;
+
+// general rules
+body {
+  @include linear-gradient(-252deg, $orange 0%, $pink 100%);
+  @include gloriola;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @include gloriola;
+  font-weight: normal;
+}
+
+a {
+  color: $blue;
+}
+
+// specific rules
+#menu {
+  @include linear-gradient(-252deg, $orange 0%, $pink 120%);
+  position: fixed;
+  top: 0;
+  z-index: 20;
+  width: 100%;
+  height: 3em;
+
+  ul {
+    @include my-width;
+    @include pad(0.5em 0 0.5em 0);
+
+    li {
+      @include span-columns(3);
+      text-align: center;
+
+      &.small-header {
+        @include span-columns(3);
+        text-align: left;
+
+        h1 {
+          margin: 0;
+          font-family: "BC Kakao Test B";
+          font-weight: bold;
+          font-size: 1.75em;
+          display: none;
+        }
+      }
+
+      a {
+        color: $white;
+
+        &:hover {
+          color: $transparent-white;
+        }
+      }
+    }
+  }
+}
+
+#header-row {
+  margin-top: 3em;
+  background: $white;
+
+  header {
+    @include my-width;
+
+    h1 {
+      @include span-columns(5);
+      @include pad(0.2em 0 0 0);
+      font-family: "BC Kakao Test B";
+      font-weight: bold;
+      font-size: 6em;
+    }
+
+    #motto {
+      @include span-columns(7);
+      @include pad(2em 0);
+    }
+  }
+}
+
+#hero {
+  @include my-width;
+  border-bottom: thin solid $white;
+  height: 10em;
+
+  .head {
+    position: relative;
+    z-index: 10;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    color: $white;
+
+    h2 {
+      font-size: 4em;
+    }
+
+    div, p {
+      font-size: 2em;
+    }
+
+    div.date {
+      @include span-columns(3);
+    }
+
+    div.place {
+      @include span-columns(4);
+    }
+  }
+
+  .body {
+    @include my-width;
+    position: relative;
+    margin-top: 2em;
+    z-index: 1;
+    opacity: 0;
+    display: none;
+
+    p {
+      @include span-columns(12);
+      margin-bottom: 0;
+      font-size: 1.5em;
+      color: $white;
+    }
+
+    div {
+      @include span-columns(5);
+    }
+  }
+}
+
+#items-list {
+  @include my-width;
+  margin-top: 2em;
+
+  .column {
+    @include span-columns(4);
+    @include omega(3);
+
+    .item {
+      margin: 0 0 1em 0;
+      border: thin solid $transparent-white;
+
+      &:hover {
+        border-color: $blue;
+      }
+
+      a {
+        color: $blue;
+
+        &:hover {
+          color: tint($blue, 10%);
+        }
+      }
+
+      .head {
+        @include pad(1em);
+        background: $transparent-white;
+
+        h5 {
+          font-weight: bold;
+          font-size: 1em;
+          color: $blue;
+        }
+
+      }
+
+      .body {
+        @include pad(1em);
+        background: $white;
+      }
+
+      .tags {
+        @include pad(1em);
+        @include row;
+        background: $transparent-white;
+
+        li {
+          @include span-columns(1 of 4);
+          border-radius: 0.75em;
+          background: $white;
+          text-align: center;
+          font-size: 0.75em;
+          border: thin solid $white;
+
+          &:hover {
+            border-color: $blue;
+          }
+        }
+      }
+    }
+  }
+}
+
