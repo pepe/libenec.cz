@@ -9,6 +9,7 @@ gem "bourbon"
 gem "neat"
 gem "bitters"
 gem "coffee-script"
+gem 'therubyracer'
 
 # Internal extensions
 gem "middleman-gh-pages" # GitHub Pages deployment
