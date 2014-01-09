@@ -3,11 +3,9 @@ $iphone-landscape: new-breakpoint(max-width 480px 4);
 $iphone-portrait: new-breakpoint(max-width 320px 4);
 
 @include media($ipad-portrait) {
-
   body {
     font-size: 0.75em;
   }
-
 }
 
 @include media($iphone-landscape) {
@@ -20,6 +18,5 @@ $iphone-portrait: new-breakpoint(max-width 320px 4);
   body {
     font-size: 0.33em;
   }
-
 }
 

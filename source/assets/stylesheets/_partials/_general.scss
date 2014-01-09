@@ -1,7 +1,7 @@
 // colors
 $white: rgb(252, 253, 255);
 $black: rgb(3, 2, 0);
-$transparent-white: rgba(252, 253, 255, 0.3);
+$transparent-white: rgba(252, 253, 255, 0.09);
 $blue: rgb(62, 73, 105);
 $pink: rgb(241, 176, 196);
 $orange: rgb(237, 193, 168);
@@ -44,8 +44,8 @@ a {
         text-align: left;
 
         h1 {
+          @include kakao;
           margin: 0;
-          font-family: "BC Kakao Test B";
           font-weight: bold;
           font-size: 1.75em;
           display: none;
@@ -164,11 +164,10 @@ a {
         background: $transparent-white;
 
         h5 {
-          font-weight: bold;
+          @include kakao;
           font-size: 1em;
           color: $blue;
         }
-
       }
 
       .body {
