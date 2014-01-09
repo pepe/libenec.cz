@@ -8,9 +8,9 @@
 $white: rgb(252, 253, 255);
 $black: rgb(3, 2, 0);
 $transparent-white: rgba(252, 253, 255, 0.3);
-$blue: #383D74;
-$pink: #F1B0C4;
-$magenta: #EDC1A8;
+$blue: rgb(62, 73, 105);
+$pink: rgb(241, 176, 196);
+$orange: rgb(237, 193, 168);
 
 // mixins
 @mixin my-width {
@@ -29,7 +29,7 @@ $magenta: #EDC1A8;
 
 // general rules
 body {
-  @include linear-gradient(-252deg, $magenta 0%, $pink 100%);
+  @include linear-gradient(-252deg, $orange 0%, $pink 100%);
   @include gloriola;
 }
 
@@ -44,7 +44,7 @@ a {
 
 // specific rules
 #menu {
-  @include linear-gradient(-252deg, $magenta 0%, $pink 120%);
+  @include linear-gradient(-252deg, $orange 0%, $pink 120%);
   position: fixed;
   top: 0;
   z-index: 20;
@@ -144,10 +144,14 @@ a {
 
 
     p {
-      @include span-columns(12);
+      @include span-columns(7);
       margin-bottom: 0;
       font-size: 1.5em;
       color: $white;
+    }
+
+    div {
+      @include span-columns(5);
     }
   }
 }

@@ -10,7 +10,6 @@ scrollControll = ->
     headerTop = $("header h1").position().top
     $(window).scroll ->
       scrolled = $(this).scrollTop()
-      console.log(scrolled)
       if scrolled > headerHeight and header is "big"
         header = "small"
         $("#menu h1").show()
