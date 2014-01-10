@@ -7,6 +7,11 @@ $pink: rgb(241, 176, 196);
 $orange: rgb(237, 193, 168);
 $max-width: 56em;
 
+
+// fonts
+@include font-face(Kakao, '../fonts/Kakao_Black_7', bold);
+@include font-face(Gloriola, '../fonts/Gloriola_Light');
+
 // general rules
 body {
   @include linear-gradient(-252deg, $orange 0%, $pink 100%);
@@ -48,8 +53,8 @@ a {
           margin: 0;
           font-weight: bold;
           font-size: 1.75em;
-          opacity: 0;
         }
+
       }
 
       a {
@@ -59,6 +64,14 @@ a {
           color: $transparent-white;
         }
       }
+    }
+
+    .monitor & h1 {
+      opacity: 0;
+    }
+
+    .detail & h1 {
+      opacity: 1;
     }
   }
 }
@@ -73,7 +86,7 @@ a {
     h1 {
       @include span-columns(5);
       @include pad(0.2em 0 0 0);
-      font-family: "BC Kakao Test B";
+      @include kakao;
       font-weight: bold;
       font-size: 6em;
     }
@@ -81,6 +94,11 @@ a {
     #motto {
       @include span-columns(7);
       @include pad(2em 0);
+
+      strong {
+        font-weight: normal;
+        color: $pink;
+      }
     }
   }
 }
@@ -133,67 +151,77 @@ a {
       @include span-columns(5);
     }
   }
+
+  .detail & {
+    margin-top: 3em;
+    height: 7em;
+    border-top: thin solid $white;
+    border-bottom: none;
+  }
 }
 
-#items-list {
+#items {
   @include my-width;
   margin-top: 2em;
 
   .column {
     @include span-columns(4);
     @include omega(3);
+  }
 
-    .item {
-      margin: 0 0 1em 0;
+  .item {
+    margin: 0 0 1em 0;
+    border: thin solid $transparent-white;
+
+    &:hover {
+      border-color: $blue;
+    }
+
+    .detail &:hover {
       border: thin solid $transparent-white;
+    }
+
+    a {
+      color: $blue;
 
       &:hover {
-        border-color: $blue;
+        color: tint($blue, 10%);
       }
+    }
 
-      a {
+    .head {
+      @include pad(1em);
+      background: $transparent-white;
+
+      h5 {
+        @include kakao;
+        font-size: 1em;
         color: $blue;
+      }
+    }
+
+    .body {
+      @include pad(1em);
+      background: $white;
+    }
+
+    .tags {
+      @include pad(1em);
+      @include row;
+      background: $transparent-white;
+
+      li {
+        @include span-columns(1 of 4);
+        border-radius: 0.75em;
+        background: $white;
+        text-align: center;
+        font-size: 0.75em;
+        border: thin solid $white;
 
         &:hover {
-          color: tint($blue, 10%);
-        }
-      }
-
-      .head {
-        @include pad(1em);
-        background: $transparent-white;
-
-        h5 {
-          @include kakao;
-          font-size: 1em;
-          color: $blue;
-        }
-      }
-
-      .body {
-        @include pad(1em);
-        background: $white;
-      }
-
-      .tags {
-        @include pad(1em);
-        @include row;
-        background: $transparent-white;
-
-        li {
-          @include span-columns(1 of 4);
-          border-radius: 0.75em;
-          background: $white;
-          text-align: center;
-          font-size: 0.75em;
-          border: thin solid $white;
-
-          &:hover {
-            border-color: $blue;
-          }
+          border-color: $blue;
         }
       }
     }
   }
 }
-
