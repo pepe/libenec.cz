@@ -12,13 +12,13 @@ scrollControll = ->
       scrolled = $(this).scrollTop()
       if scrolled > headerHeight and header is "big"
         header = "small"
-        $("#menu h1").show()
+        $("#menu h1").animate({ opacity: 1 })
       else if scrolled < headerHeight and header == "small"
         header = "big"
-        $("#menu h1").hide()
+        $("#menu h1").animate({ opacity: 0 })
 
 
-dist = "56em"
+dist = $("#hero").css("max-width")
 
 bindHero = ->
   $("#hero").bind "mouseover", moveRight
