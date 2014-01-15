@@ -3,7 +3,7 @@
 dist = 0
 
 scrollControll = ->
-  headerHeight = 106
+  headerHeight = 95
   phone = (navigator.userAgent.match(/iPhone/i)) or (navigator.userAgent.match(/iPod/i)) or (navigator.userAgent.match(/Android/i)) or (navigator.userAgent.match(/Windows Phone OS/i))
   ipad = (navigator.userAgent.match(/iPad/i))
 
@@ -14,10 +14,12 @@ scrollControll = ->
       scrolled = $(this).scrollTop()
       if scrolled > headerHeight and header is "big"
         header = "small"
-        $("#menu h1").animate({ opacity: 1 }, 500)
       else if scrolled < headerHeight and header == "small"
         header = "big"
-        $("#menu h1").animate({ opacity: 0 }, 100)
+      else if scrolled < headerHeight and header == "big"
+        percentage = (scrolled / headerHeight)
+        $("header").css("opacity", 1 - percentage)
+        $("#menu h1").css("opacity", 0 + percentage)
 
 
 bindHero = ->
@@ -28,7 +30,8 @@ moveRight = ->
   body = $(this).children(".body")
   head.animate { left: "+=" + dist }, 200, ->
     head.hide()
-    body.show().animate({ opacity: 1 }, 200).bind("mouseout", moveLeft)
+    body.show().animate({ opacity: 1 }, 200)
+  body.bind("mouseout", moveLeft)
   $(this).unbind("mouseover")
 
 moveLeft = ->
