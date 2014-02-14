@@ -17,4 +17,11 @@
   font-weight: bold;
 }
 
+@mixin subtle-shadow {
+  box-shadow: 0 0 5px 3px $transparent-black;
+}
+
+@mixin pink-to-orange($range) {
+  @include linear-gradient(252deg, $orange 0%, $pink $range);
+}
 

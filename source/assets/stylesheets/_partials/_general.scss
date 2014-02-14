@@ -2,9 +2,11 @@
 $white: rgb(252, 253, 255);
 $black: rgb(3, 2, 0);
 $transparent-white: rgba(252, 253, 255, 0.09);
+$transparent-black: rgba(3, 2, 0, 0.09);
+$black: rgb(3, 2, 0);
 $blue: rgb(62, 73, 105);
 $pink: rgb(241, 176, 196);
-$orange: rgb(237, 193, 168);
+$orange: rgb(239, 239, 186);
 $max-width: 56em;
 
 
@@ -14,7 +16,7 @@ $max-width: 56em;
 
 // general rules
 body {
-  @include linear-gradient(-252deg, $orange 0%, $pink 100%);
+  @include pink-to-orange(100%);
   @include gloriola;
 }
 
@@ -29,7 +31,7 @@ a {
 
 // specific rules
 #menu {
-  @include linear-gradient(-252deg, $orange 0%, $pink 120%);
+  @include pink-to-orange(120%);
   position: fixed;
   top: 0;
   z-index: 20;
@@ -174,11 +176,11 @@ a {
     border: thin solid $transparent-white;
 
     &:hover {
-      border-color: $blue;
+      @include subtle-shadow;
     }
 
     .detail &:hover {
-      border: thin solid $transparent-white;
+      @include subtle-shadow;
     }
 
     a {
@@ -219,7 +221,7 @@ a {
         border: thin solid $white;
 
         &:hover {
-          border-color: $blue;
+          box-shadow: 0 0 5px 3px hsla(0, 0%, 0%, 0.65);
         }
       }
     }
